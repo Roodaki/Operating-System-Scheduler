@@ -1,0 +1,2 @@
+process_id,arrival_time,cpu_time1,io_time,cpu_time2
+1,0,7,2,2
