@@ -110,7 +110,7 @@ void RR_scheduling_algorithm(Queue *job_queue)
 
     int current_time = 0;
 
-    fprintf(algorithm_procedure_output_file, "***Round-Robin (RR) Scheduling Algorithm in Operating System***\n");
+    fprintf(algorithm_procedure_output_file, "***Round-Robin (RR) Scheduling Algorithm in Operating System***\n\n");
 
     int time_quantum;
     printf("Enter Time Quantum for Round-Robin (RR): ");
@@ -224,7 +224,7 @@ void SJF_scheduling_algorithm(Queue *job_queue)
 
     int current_time = 0;
 
-    fprintf(algorithm_procedure_output_file, "***Shortest Job First (SJF) or Shortest Process Next (SPN) Scheduling Algorithm in Operating System***\n");
+    fprintf(algorithm_procedure_output_file, "***Shortest Job First (SJF) or Shortest Process Next (SPN) Scheduling Algorithm in Operating System***\n\n");
     while (!is_full(terminated_queue))
     {
         fprintf(algorithm_procedure_output_file, "Time = %d-%d:\n", current_time, current_time + 1);
@@ -315,7 +315,7 @@ void SRTF_scheduling_algorithm(Queue *job_queue)
 
     int current_time = 0;
 
-    fprintf(algorithm_procedure_output_file, "***Shortest Remaining Time First (SRTF) Scheduling Algorithm in Operating System***");
+    fprintf(algorithm_procedure_output_file, "***Shortest Remaining Time First (SRTF) Scheduling Algorithm in Operating System***\n\n");
     while (!is_full(terminated_queue))
     {
         fprintf(algorithm_procedure_output_file, "Time = %d-%d:\n", current_time, current_time + 1);
@@ -423,7 +423,7 @@ void MLFQ_scheduling_algorithm(Queue *job_queue)
     int running_elapsed_time = 0;
     int running_process_previous_level = 1;
 
-    fprintf(algorithm_procedure_output_file, "***Multi-Level Feedback Queue (MLFQ) Scheduling Algorithm in Operating System***");
+    fprintf(algorithm_procedure_output_file, "***Multi-Level Feedback Queue (MLFQ) Scheduling Algorithm in Operating System***\n\n");
 
     int time_quantum_level_1;
     printf("Enter Time Quantum for Level 1 Queue of Multi-Level Feedback Queue (MLFQ): ");
