@@ -1,4 +1,4 @@
-<h1 align="center">Operating System CPU-Scheduling Algorithms Implementation</h1>
+<h1 align="center">Operating System CPU-Scheduling Algorithms</h1>
 
 # 1. First Come, First Serve (FCFS):
   - Definition:
@@ -90,3 +90,45 @@
   
     * It also produces CPU overheads
     * It is the most complex algorithm.
+    
+<h1 align="center">Processes Analyser</h1>
+
+## 1. Arrival Time/ Creation Time
+
+  - The Time Which the Process is Added To the Job Queue
+  - Given in the Input
+  
+## 2. Termination Time/ Completion Time
+
+  - The Time Which the Proces Completes It's Excutoin and Is Added to the Terminated Queue
+  
+## 3. Response Time
+
+  - In a collaborative system, turn around time is not the best option. The process may produce something early and continue to computing the new results while the previous results are released to the user. Therefore another method is the time taken in the submission of the application process until the first response is issued. This measure is called response time.
+  - The First Time Which the Process is Moved to Running State.
+  
+## 4. Turnaround Time
+ 
+  - For a particular process, the important conditions are how long it takes to perform that process. The time elapsed from the time of process delivery to the time of completion is known as the conversion time. Conversion time is the amount of time spent waiting for memory access, waiting in line, using CPU, and waiting for I / O.
+ - Terminatoin Time - Arrivial Time
+  
+## 5. Waiting Time
+
+  - The Scheduling algorithm does not affect the time required to complete the process once it has started performing. It only affects the waiting time of the process i.e. the time spent in the waiting process in the ready queue.
+  - Turnaround Time - (CPU Burst Time + IO Birst Time)
+  
+  <h1 align="center">Algorithms Analyser</h1>
+  
+  ## 1. CPU Execution Time/ CPU Active Time
+  ## 2. CPU idle time
+  ## 3. CPU Utilization
+  
+  - The main purpose of any CPU algorithm is to keep the CPU as busy as possible. Theoretically, CPU usage can range from 0 to 100 but in a real-time system, it varies from 40 to 90 percent depending on the system load.
+    
+  ## 4. Throughput
+  
+  - The average CPU performance is the number of processes performed and completed during each unit. This is called throughput. The output may vary depending on the length or duration of the processes.
+
+  ## 5. Average turnaround time
+  ## 6. Average waiting time
+  ## 7. Average response time
