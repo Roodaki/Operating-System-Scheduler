@@ -1,3 +1,6 @@
+#include <string.h>
+#include <direct.h>
+
 #include "../Data_Structures/Queue.h"
 
 // create a new file in a given directory with given name and given extension
@@ -15,7 +18,7 @@ FILE *create_file(char *path, char *name, char *extension)
 // create a directory if it doesn't exist already with given name in given path
 void create_directory(char *path)
 {
-    mkdir(path, 0777);
+    _mkdir(path);
 }
 
 //  Count the number of lines in a CSV file
