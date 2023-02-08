@@ -1,7 +1,7 @@
 #include <string.h>
 #include <direct.h>
 
-#include "../Data_Structures/Queue.h"
+#include "../Data_Structures/queue.h"
 
 // create a new file in a given directory with given name and given extension
 FILE *create_file(char *path, char *name, char *extension)

@@ -1,4 +1,4 @@
-#include "Process_Analyzer.h"
+#include "process_analyzer.h"
 
 // finish_time = last process termination time
 int get_finish_time(Queue *terminated_queue)

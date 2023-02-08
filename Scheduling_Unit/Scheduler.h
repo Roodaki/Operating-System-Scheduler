@@ -1,4 +1,4 @@
-#include "./Analyze_Unit/Algorithm_Analyzer.h"
+#include "./Analyze_Unit/algorithm_analyzer.h"
 
 Queue *ready_queue = NULL;
 Process *running_process = NULL;

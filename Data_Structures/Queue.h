@@ -1,4 +1,4 @@
-#include "Process.h"
+#include "process.h"
 
 // Standard Queue Structure
 typedef struct queue
