@@ -1,134 +1,180 @@
-<h1 align="center">Operating System CPU-Scheduling Algorithms</h1>
+<div align="center">
+  <h1><strong>Operating-System Scheduler</strong></h1>
+  <p><strong>This project aims to provide a comprehensive simulation of the scheduling procedures employed by operating systems. By implementing various scheduling algorithms, this project enables users to analyze and evaluate their performance in different scenarios. It aims to facilitate a deeper understanding of scheduling concepts and assist in comparing the effectiveness of different algorithms.</strong></p>
+</div>
 
-# 1. First Come, First Serve (FCFS):
-  - Definition:
-  
-    The first come first serve scheduling algorithm states that the process that requests the CPU first is allocated the CPU first and is implemented by using a FIFO queue.
-  - Advantages:
-    
-    * Easy to implement
-    * First come, first serve method
-    
-  - Disadvantages:
-    
-    * FCFS suffers from the Convoy effect.
-    * The average waiting time is much higher than the other algorithms.
-    * FCFS is very simple and easy to implement and hence not much efficient.
-# 2. Round Robin (RR)
-  - Definition:
-  
-    Round Robin is a CPU scheduling algorithm where each process is cyclically assigned a fixed time slot. It is the preemptive version of the First come First Serve CPU Scheduling algorithm. Round Robin CPU Algorithm generally focuses on Time Sharing technique. 
+## Table of Contents
+- [Features](#features)
+- [Project Structure](#project-structure)
+- [Getting Started](#getting-started)
+  - [Requirements](#requirements)
+  - [Installation](#installation)
+  - [Usage Guide](#usage-guide)
+- [Example](#example)
 
-  - Characteristics:
-  
-    * It’s simple, easy to use, and starvation-free as all processes get the balanced CPU allocation.
-    * One of the most widely used methods in CPU scheduling as a core.
-    * It is considered preemptive as the processes are given to the CPU for a very limited time.
-    
-  - Advantages: 
-  
-    * Round robin seems to be fair as every process gets an equal share of CPU.
-    * The newly created process is added to the end of the ready queue.
-# 3. Shortest Job First (SJF)
-  - Definition:
-  
-    Shortest job first (SJF) is a scheduling process that selects the waiting process with the smallest execution time to execute next. Significantly reduces the average waiting time for other processes waiting to be executed. The full form of SJF is Shortest Job First.
+## Features
+- Implement the following scheduling algorithms:
+  - First-Come, First-Served (FCFS)
+  - Shortest Job First (SJF)
+  - Round Robin (RR)
+  - Shortest Remaining Time First (SRTF)
+  - Multilevel Feedback Queue (MLFQ)
+- Simulate scheduling processes based on the implemented algorithms by generating detailed time-line logs to track process movements.
+- Utilize the following states in the scheduling procedure:
+  - New
+  - Ready
+  - Running
+  - Waiting
+  - Terminated
+- Analyze the performance of scheduling algorithms using the following measurements:
+  - CPU Utilization
+  - Throughput
+  - Average Turnaround Time
+  - Average Waiting Time
+  - Average Response Time
 
-  - Characteristics:
-  
-    * Shortest Job first has the advantage of having a minimum average waiting time among all operating system scheduling algorithms.
-    * It is associated with each task as a unit of time to complete.
-    * It may cause starvation if shorter processes keep coming. This problem can be solved using the concept of aging.
+## Project Structure
+The project has the following structure:
+```
+├── Data Structures/
+│   ├── process.h
+│   └── queue.h
+├── IO/
+│   ├── input/
+│   │   └── input_processes.csv
+│   ├── output/
+│   └── user_interactions_unit.h
+├── Scheduling_Unit/
+│   ├── scheduler.h
+│   └── Analyze_Unit/
+│       ├── algorithm_analyzer.h
+│       └── process_analyzer.h
+├── main.c
+├── .gitignore
+└── README.md
+```
 
-  - Advantages:
-  
-    * As SJF reduces the average waiting time thus, it is better than the first come first serve scheduling algorithm.
-    * SJF is generally used for long-term scheduling
-    
-  - Disadvantages:
-  
-    * One of the demerits SJF has is starvation.
-    * Many times it becomes complicated to predict the length of the upcoming CPU request
+## Getting Started
+### Requirements
+* C compiler (e.g., GCC)
+* Git command line tool (or Git GUI client) to clone the repository.
+### Installation
+1. Open a terminal or command prompt.
+2. Clone this repository: `git clone https://github.com/Roodaki/Operating-System-Scheduler`
+3. Navigate to the cloned repository's directory and Compile the source code using the following command: `gcc main.c -o scheduler`
+4. Run the compiled executable: `./scheduler`
+### Usage Guide
+1. Prepare a CSV file containing the processes of the job queue in the following format: 
+    ```
+    process_id,arrival_time,cpu_time1,io_time,cpu_time2
+    ```
+    - **process_id**: Unique identifier for the process.
+    - **arrival_time**: The time at which the process arrives in the system.
+    - **cpu_time1**: The duration of the first CPU burst time for the process.
+    - **io_time**: The duration of I/O burst time for the process.
+    - **cpu_time2**: The duration of the second CPU burst time for the process.
+2. Compile and run the program.
+3. After the execution is completed, you will find the output in the following structure:
+    ```
+    └── output
+        ├── FCFS
+        │   ├── FCFS - Algorithm Analysis.log
+        │   ├── FCFS - Algorithm Procedure.log
+        │   └── FCFS - Processes Analysis.log
+        ├── SJF
+        │   ├── SJF - Algorithm Analysis.log
+        │   ├── SJF - Algorithm Procedure.log
+        │   └── SJF - Processes Analysis.log
+        ├── RR
+        │   ├── RR - Algorithm Analysis.log
+        │   ├── RR - Algorithm Procedure.log
+        │   └── RR - Processes Analysis.log
+        ├── SRTF
+        │   ├── SRTF - Algorithm Analysis.log
+        │   ├── SRTF - Algorithm Procedure.log
+        │   └── SRTF - Processes Analysis.log
+        └── MLFQ
+            ├── MLFQ - Algorithm Analysis.log
+            ├── MLFQ - Algorithm Procedure.log
+            └── MLFQ - Processes Analysis.log
+    ```
+    - For each algorithm, there will be a separate folder created in the output directory.
+    - Inside each algorithm folder, you will find three log files:
+        - **algorithm_procedure.log**: This file contains the time-line of the algorithm, detailing the movements of the processes during the scheduling.
+        - **algorithm_analysis.log**: This file contains the calculated measurements of the algorithm, such as CPU utilization, throughput, average turnaround time, average waiting time, and average response time.
+        - **process_analysis.log**: This file contains the calculated measurements for each individual process, including its turnaround time, waiting time, and response time.
 
-# 4. Shortest Remaining-Time First (STRF)
-  - Definition:
-  
-    The shortest remaining time first is the preemptive version of the Shortest job first which we have discussed earlier where the processor is allocated to the job closest to completion. In SRTF the process with the smallest amount of time remaining until completion is selected to execute.
+## Example
+Assuming you have entered following process to the "input_process.csv" file:
+```
+process_id,arrival_time,cpu_time1,io_time,cpu_time2
+1,0,4,4,1
+2,2,1,1,3
+```
+The "output" directory contains separate directories for each scheduling algorithm: FCFS, SJF, RR, SRTF, and MLFQ. Within each algorithm directory, there are specific log files related to algorithm analysis, algorithm procedure, and process analysis.
+### RR - Algorithm Analysis.log:
+```
+CPU execution time: 9
+CPU idle time: 3
+CPU utilization: 75.00%
+Throughput: 6.00
+Average turnaround time: 9.50
+Average waiting time: 2.50
+Average response time: 2.00
+```
+### RR - Algorithm Procedure.log:
+```
+Time = 0-1:
+Process-1 moves from the Job Queue to the Ready Queue.
+Process-1 moves from the Ready Queue to the Running State.
+Process-1's first CPU burst is executed for 1 second (Remaining first CPU burst time = 3).
+Time = 1-2:
+Process-1's first CPU burst is executed for 1 second (Remaining first CPU burst time = 2).
+Process-1's time quantum is finished and it moves from the Running State to the Ready Queue.
+Time = 2-3:
+Process-2 moves from the Job Queue to the Ready Queue.
+Process-1 moves from the Ready Queue to the Running State.
+Process-1's first CPU burst is executed for 1 second (Remaining first CPU burst time = 1).
+Time = 3-4:
+Process-1's first CPU burst is executed for 1 second (Remaining first CPU burst time = 0).
+Process-1 moves from the Running State to the Waiting Queue to execute its I/O burst.
+Time = 4-5:
+Process-2 moves from the Ready Queue to the Running State.
+Process-1 waits for I/O resource for 1 second (Remaining I/O waiting time = 3).
+Process-2's first CPU burst is executed for 1 second (Remaining first CPU burst time = 0).
+Process-2 moves from the Running State to the Waiting Queue to execute its I/O burst.
+Time = 5-6:
+Process-1 waits for I/O resource for 1 second (Remaining I/O waiting time = 2).
+Time = 6-7:
+Process-1 waits for I/O resource for 1 second (Remaining I/O waiting time = 1).
+Time = 7-8:
+Process-1 waits for I/O resource for 1 second (Remaining I/O waiting time = 0).
+Process-1's I/O waiting time is finished and it moves from the Waiting Queue to the Ready Queue.
+Time = 8-9:
+Process-1 moves from the Ready Queue to the Running State.
+Process-2 waits for I/O resource for 1 second (Remaining I/O waiting time = 0).
+Process-2's I/O waiting time is finished and it moves from the Waiting Queue to the Ready Queue.
+Process-1's second CPU burst is executed for 1 second (Remaining second CPU burst time = 0).
+Process-1 is terminated (moved from the Running State to the Terminated Queue).
+Time = 9-10:
+Process-2 moves from the Ready Queue to the Running State.
+Process-2's second CPU burst is executed for 1 second (Remaining second CPU burst time = 2).
+Time = 10-11:
+Process-2's second CPU burst is executed for 1 second (Remaining second CPU burst time = 1).
+Time = 11-12:
+Process-2's second CPU burst is executed for 1 second (Remaining second CPU burst time = 0).
+Process-2 is terminated (moved from the Running State to the Terminated Queue).
+```
+### RR - Processes Analysis.log:
+```
+Process-1:
+Turnaround Time: 9
+Waiting Time: 4
+Response Time: 2
 
-  - Characteristics:
-  
-    * SRTF algorithm makes the processing of the jobs faster than the SJF algorithm, given its overhead charges are not counted. 
-    * The context switch is done a lot more times in SRTF than in SJF and consumes the CPU’s valuable time for processing. This adds up to its processing time and diminishes its advantage of fast processing.
-    
-  - Advantages:
-    
-    * In SRTF the short processes are handled very fast.
-    * The system also requires very little overhead since it only makes a decision when a process completes or a new process is added. 
-
-  - Disadvantages:
-
-    * Like the shortest job first, it also has the potential for process starvation. 
-    * Long processes may be held off indefinitely if short processes are continually added. 
-    
-# 5. Multi-Level Feedback Queue (MLFQ)
-  - Definition:
-  
-    Multilevel Feedback Queue Scheduling (MLFQ) CPU Scheduling is like  Multilevel Queue Scheduling but in this process can move between the queues. And thus, much more efficient than multilevel queue scheduling. 
-
-  - Characteristics:
-  
-    * In a multilevel queue-scheduling algorithm, processes are permanently assigned to a queue on entry to the system, and processes are not allowed to move between queues. 
-    * As the processes are permanently assigned to the queue, this setup has the advantage of low scheduling overhead, 
-    * But on the other hand disadvantage of being inflexible.
-
-  - Advantages:
-  
-    * It is more flexible
-    * It allows different processes to move between different queues
-
-  - Disadvantages:
-  
-    * It also produces CPU overheads
-    * It is the most complex algorithm.
-    
-<h1 align="center">Processes Analyser</h1>
-
-## 1. Arrival Time/ Creation Time
-
-  - The Time Which the Process is Added To the Job Queue
-  - Given in the Input
-  
-## 2. Termination Time/ Completion Time
-
-  - The Time Which the Proces Completes It's Excutoin and Is Added to the Terminated Queue
-  
-## 3. Response Time
-
-  - In a collaborative system, turn around time is not the best option. The process may produce something early and continue to computing the new results while the previous results are released to the user. Therefore another method is the time taken in the submission of the application process until the first response is issued. This measure is called response time.
-  - The First Time Which the Process is Moved to Running State.
-  
-## 4. Turnaround Time
- 
-  - For a particular process, the important conditions are how long it takes to perform that process. The time elapsed from the time of process delivery to the time of completion is known as the conversion time. Conversion time is the amount of time spent waiting for memory access, waiting in line, using CPU, and waiting for I / O.
- - Terminatoin Time - Arrivial Time
-  
-## 5. Waiting Time
-
-  - The Scheduling algorithm does not affect the time required to complete the process once it has started performing. It only affects the waiting time of the process i.e. the time spent in the waiting process in the ready queue.
-  - Turnaround Time - (CPU Burst Time + IO Birst Time)
-  
-  <h1 align="center">Algorithms Analyser</h1>
-  
-  ## 1. CPU Execution Time/ CPU Active Time
-  ## 2. CPU idle time
-  ## 3. CPU Utilization
-  
-  - The main purpose of any CPU algorithm is to keep the CPU as busy as possible. Theoretically, CPU usage can range from 0 to 100 but in a real-time system, it varies from 40 to 90 percent depending on the system load.
-    
-  ## 4. Throughput
-  
-  - The average CPU performance is the number of processes performed and completed during each unit. This is called throughput. The output may vary depending on the length or duration of the processes.
-
-  ## 5. Average turnaround time
-  ## 6. Average waiting time
-  ## 7. Average response time
+Process-2:
+Turnaround Time: 10
+Waiting Time: 4
+Response Time: 3
+```
+You can find similar log files for each scheduling algorithm to analyze their respective performance and understand the process movements throughout the simulation.
